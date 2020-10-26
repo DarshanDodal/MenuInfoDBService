@@ -187,5 +187,5 @@ app.delete("/delete-one/:id", (req, res) => {
 	});
 });
 
-app.listen(3000, () => console.log(`Listening on: 3000`));
-//module.exports.handler = serverless(app);
+//app.listen(3000, () => console.log(`Listening on: 3000`));
+module.exports.handler = serverless(app);

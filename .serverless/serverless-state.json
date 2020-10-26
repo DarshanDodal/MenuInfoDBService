@@ -160,7 +160,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/MenuInfoDBService/dev/1602065914004-2020-10-07T10:18:34.004Z/MenuInfoDBService.zip"
+                "S3Key": "serverless/MenuInfoDBService/dev/1603701796867-2020-10-26T08:43:16.867Z/MenuInfoDBService.zip"
               },
               "FunctionName": "MenuInfoDBService-dev-app",
               "Handler": "app/app.handler",
@@ -178,14 +178,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionNIKoqgYhB1jky7QvGAPPBmqP7wRTG7EdcxyH0yzYc": {
+          "AppLambdaVersionrK8sKkefGu9QzoQjHSUpaTRD56TGkOtDoCq5e8khBzI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "CqUKwbAgYlYqXaKLgzKc10jxipeTRsyRC1prJmzLYjw="
+              "CodeSha256": "P36EcEu+kwVIslrxId9BHYlrz1xoLRd5GN/hZ8yQxmI="
             }
           },
           "ApiGatewayRestApi": {
@@ -397,7 +397,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1602065868490": {
+          "ApiGatewayDeployment1603701757813": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -459,7 +459,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionNIKoqgYhB1jky7QvGAPPBmqP7wRTG7EdcxyH0yzYc"
+              "Ref": "AppLambdaVersionrK8sKkefGu9QzoQjHSUpaTRD56TGkOtDoCq5e8khBzI"
             }
           },
           "ServiceEndpoint": {
@@ -620,7 +620,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionNIKoqgYhB1jky7QvGAPPBmqP7wRTG7EdcxyH0yzYc"
+        "versionLogicalId": "AppLambdaVersionrK8sKkefGu9QzoQjHSUpaTRD56TGkOtDoCq5e8khBzI"
       }
     },
     "configValidationMode": "warn",
@@ -643,7 +643,7 @@
     "artifact": "E:\\Projects\\Hospitality-Management\\DBServices\\MenuInfoDBService\\.serverless\\MenuInfoDBService.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/MenuInfoDBService/dev/1602065914004-2020-10-07T10:18:34.004Z",
+    "artifactDirectoryName": "serverless/MenuInfoDBService/dev/1603701796867-2020-10-26T08:43:16.867Z",
     "artifact": "MenuInfoDBService.zip"
   }
 }
