@@ -1,8 +1,8 @@
 // name of dynamodb table
-module.exports.tableName = "Tables";
+module.exports.tableName = "Menu";
 
 //Blocked elements of items in a table for update
 module.exports.blockedElements = {
-	one: "tableId",
+	one: "dishId",
 	two: "HotelId",
 };

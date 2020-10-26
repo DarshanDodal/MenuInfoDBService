@@ -1,4 +1,4 @@
-service: TableInfoDBService
+service: MenuInfoDBService
 provider:
   name: aws
   runtime: nodejs12.x

@@ -40,7 +40,8 @@ app.get("/get-one/:id/", (req, res) => {
 	const params = {
 		TableName: tableName,
 		Key: {
-			tableId: req.params.id,
+			HotelId: req.query.hotel,
+			dishId: req.params.dish,
 		},
 	};
 	dynamoDBClient.get(params, function (err, data) {
@@ -57,19 +58,50 @@ app.get("/get-one/:id/", (req, res) => {
 	});
 });
 
+//use this to get all dishes in a specific restaurant
+app.get("/", (req, res) => {
+	const params = {
+		TableName: tableName,
+		KeyConditionExpression: "#id = :hid",
+		ExpressionAttributeNames: {
+			"#id": "HotelId",
+		},
+		ExpressionAttributeValues: {
+			":hid": req.query.hotel,
+		},
+	};
+
+	dynamoDBClient.query(params, function (err, data) {
+		if (err) {
+			//console.log(err);
+			res.send({ error: true, message: err.message });
+		} else {
+			res.send({
+				error: false,
+				message: "Data fetched successfully.",
+				data: data,
+			});
+		}
+	});
+});
+
 //Use this to add new items in database.
 app.post("/", (req, res) => {
-	const tableuuid = uuid.v4().slice(0, 7);
-	const schema = { ...dbTemplate };
-	const val = {};
+	const uuidKey = uuid.v4() + uuid.v4();
+	const dishuuid = uuidKey.slice(
+		uuidKey.length / 2 - 3,
+		uuidKey.length / 2 + 3
+	);
+	console.log(dishuuid);
 	var params = {
 		TableName: tableName,
 		Item: {
-			tableId: tableuuid,
 			HotelId: req.query.hotel,
-			tableNumber: req.query.tNumber,
-			status: "unoccupied",
-			chairs: req.query.chairs,
+			dishId: dishuuid,
+			name: req.query.name,
+			price: req.query.price,
+			category: req.query.category,
+			subCategory: req.query.subCategory,
 		},
 	};
 
@@ -93,7 +125,8 @@ app.patch("/update-one/:id", (req, res) => {
 	var params = {
 		TableName: tableName,
 		Key: {
-			tableId: req.params.id,
+			HotelId: req.query.hotel,
+			dishId: req.params.dish,
 		},
 		UpdateExpression: "set #st = :r",
 		ExpressionAttributeNames: {
@@ -134,7 +167,8 @@ app.delete("/delete-one/:id", (req, res) => {
 	var params = {
 		TableName: tableName,
 		Key: {
-			tableId: req.params.id,
+			HotelId: req.query.hotel,
+			dishId: req.params.dish,
 		},
 	};
 	dynamoDBClient.delete(params, function (err, data) {
