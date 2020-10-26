@@ -92,7 +92,7 @@ app.post("/", (req, res) => {
 		uuidKey.length / 2 - 3,
 		uuidKey.length / 2 + 3
 	);
-	console.log(dishuuid);
+	//console.log(dishuuid);
 	var params = {
 		TableName: tableName,
 		Item: {
@@ -101,7 +101,8 @@ app.post("/", (req, res) => {
 			name: req.query.name,
 			price: req.query.price,
 			category: req.query.category,
-			subCategory: req.query.subCategory,
+			// subCategory: req.query.subCategory,
+			image: req.query.image,
 		},
 	};
 
